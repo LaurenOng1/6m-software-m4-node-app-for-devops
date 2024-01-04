@@ -34,8 +34,10 @@ jobs:
       - docker/check
       - docker/build:
           image: laurenong/education-space
+          tag: v1.0.1
       - docker/push:
           image: laurenong/education-space
+          tag: v1.0.1
 
   deploy:
     docker:
@@ -50,6 +52,24 @@ jobs:
               heroku container:login
               heroku container:push web -a lauren-su-devops
               heroku container:release web -a lauren-su-devops
+
+  # pull-and-deploy:
+  #   docker:
+  #     - image:cimg/node:16.10
+  #   steps:
+  #     - setup_remote_docker
+  #     - heroku/install
+  #     - docker/pull:
+  #         images: laurenong/education-space:v1.0.1
+  #     - run:
+  #         name: Heroku COntainer Push With Image From Docker Hub
+  #         command: |
+  #           heroku container:login
+  #           docker tag laurenong/education-space:v1.0.1 registry.heroku.com/lauren-su-devops/web
+  #           # format docker tag <image name from docker hub> registry.heroku.com/<app-name>/web
+  #           docker push registry.heroku.com/lauren-su-devops/web
+  #           # docker push registry.heroku.com.<app-name>
+  #           heroku container:release web -a lauren-su-devops
 
 workflows:
   simple_workflow:
