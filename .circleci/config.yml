@@ -33,9 +33,9 @@ jobs:
       - checkout
       - docker/check
       - docker/build:
-          image: lauren/education-space
+          image: laurenong/education-space
       - docker/push:
-          image: lauren/education-space
+          image: laurenong/education-space
 
   deploy:
     docker:
