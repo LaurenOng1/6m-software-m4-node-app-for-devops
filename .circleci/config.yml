@@ -62,7 +62,7 @@ jobs:
   #     - docker/pull:
   #         images: laurenong/education-space:v1.0.1
   #     - run:
-  #         name: Heroku COntainer Push With Image From Docker Hub
+  #         name: Heroku Container Push With Image From Docker Hub
   #         command: |
   #           heroku container:login
   #           docker tag laurenong/education-space:v1.0.1 registry.heroku.com/lauren-su-devops/web
@@ -86,3 +86,11 @@ workflows:
           requires:
             # - publish
             - build
+  Assignment4_6_workflow:
+    on: push
+    jobs:
+      if: github.ref_name == 'main'
+        - build
+        - test:
+            requires:
+              - build
