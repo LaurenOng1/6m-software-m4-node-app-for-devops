@@ -72,12 +72,13 @@ jobs:
   #           heroku container:release web -a lauren-su-devops
 
 workflows:
-#   simple_workflow:
-#     jobs:
-#       - build
-#       - test:
-#           requires:
-#             - build
+  simple_workflow:
+    on: push
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
 #       - publish:
 #           requires:
 #             # - test
@@ -100,13 +101,13 @@ workflows:
   #         requires:
   #           - build
 
-  Assignment_workflow:
-  on: push
-  jobs:
-    build
-    test:
-      requires:
-        - build
+  # Assignment_workflow:
+  # on: push
+  # jobs:
+  #   build
+  #   test:
+  #     requires:
+  #       - build
 
   # Assignment_workflow:
   #   on:
