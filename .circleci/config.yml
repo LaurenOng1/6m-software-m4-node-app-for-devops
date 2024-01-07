@@ -106,11 +106,11 @@ workflows:
   #     requires:
   #       - build
 
-  Assignment_workflow:
-    on:
-      push:
-        branches:
-          - master
-    jobs:
-      - build
-      - test
+  # Assignment_workflow:
+  #   on:
+  #     push:
+  #       branches:
+  #         - master
+  #   jobs:
+  #     - build
+  #     - test
