@@ -86,6 +86,7 @@ workflows:
           requires:
             # - publish
             - build
+
   # Assignment4_6_workflow:
   #   on:
   #     push:
@@ -96,10 +97,20 @@ workflows:
   #     - test:
   #         requires:
   #           - build
-  Assignment_workflow:
-  on: push
-  jobs:
-    build
-    test:
-      requires:
-        - build
+
+  # Assignment_workflow:
+  # on: push
+  # jobs:
+  #   build
+  #   test:
+  #     requires:
+  #       - build
+
+    Assignment_workflow:
+    on:
+      push:
+        branches:
+          - master
+    jobs:
+      - build
+      - test
