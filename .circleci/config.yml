@@ -86,11 +86,20 @@ workflows:
           requires:
             # - publish
             - build
-  Assignment4_6_workflow:
-    on: push
-    jobs:
-      if: github.ref_name == 'main'
+  # Assignment4_6_workflow:
+  #   on:
+  #     push:
+  #       branches:
+  #         - master
+  #   jobs:
+  #     - build
+  #     - test:
+  #         requires:
+  #           - build
+  Assignment_workflow:
+  on: push
+  jobs:
+    build
+    test:
+      requires:
         - build
-        - test:
-            requires:
-              - build
