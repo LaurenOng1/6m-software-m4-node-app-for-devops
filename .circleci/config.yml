@@ -106,7 +106,7 @@ workflows:
   #     requires:
   #       - build
 
-    Assignment_workflow:
+  Assignment_workflow:
     on:
       push:
         branches:
